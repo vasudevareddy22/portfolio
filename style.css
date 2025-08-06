@@ -66,12 +66,7 @@ header {
 .gradient-text {
     font-size: 4rem;
     font-weight: 700;
-    background: linear-gradient(45deg, #007bff, #00ff88);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    animation: gradient 8s ease infinite;
-    background-size: 200% 200%;
+    color: red;
 }
 
 .typing-container {
@@ -263,11 +258,14 @@ header {
 
 /* Skills Section */
 #skills {
-    min-height: 100vh;
-    padding: 100px 20px;
+    height: 100vh;
+    padding: 80px 20px;
     background-color: #f8f9fa;
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .skills-container {
@@ -275,17 +273,16 @@ header {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 60px;
+    gap: 40px;
+    width: 100%;
 }
 
 .section-title {
     text-align: center;
     font-size: 2.5rem;
-    margin-bottom: 50px;
-    background: linear-gradient(45deg, #007bff, #00ff88);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    margin-bottom: 40px;
+    color: #333;
+    font-weight: 700;
 }
 
 .skills-grid {
@@ -293,39 +290,44 @@ header {
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
     padding: 20px;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1000px;
 }
 
 .skill-card {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    padding: 30px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    padding: 25px;
     text-align: center;
     transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 15px;
-    box-shadow: 0 8px 32px rgba(0, 123, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
 .skill-card:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 15px 45px rgba(0, 123, 255, 0.2);
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(0, 123, 255, 0.2);
 }
 
 .skill-card i {
     font-size: 3rem;
-    background: linear-gradient(45deg, #007bff, #00ff88);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
     transition: transform 0.3s ease;
 }
 
+/* Original colors for icons */
+.fa-html5 { color: #e34f26; }
+.fa-css3-alt { color: #1572b6; }
+.fa-js { color: #f7df1e; }
+.fa-python { color: #3776ab; }
+.fa-git-alt { color: #f05032; }
+.fa-react { color: #61dafb; }
+
 .skill-card:hover i {
-    transform: scale(1.1);
+    filter: drop-shadow(0 0 8px currentColor);
 }
 
 .skill-card span {
@@ -338,27 +340,28 @@ header {
 .skills-ticker-container {
     width: 100%;
     padding: 15px 0;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.9);
     border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     overflow: hidden;
     position: relative;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin-top: auto;
+    margin-bottom: 20px;
 }
 
 .ticker-content {
     white-space: nowrap;
     overflow: hidden;
+    width: 100%;
 }
 
 .ticker-text {
     display: inline-block;
-    animation: ticker 15s linear infinite;
-    padding-right: 100px;
+    animation: ticker 5s linear infinite;
+    padding-right: 50px;
     font-size: 1.1rem;
     color: #333;
-    margin-right: 100px; /* Add space between repetitions */
+    font-weight: 500;
 }
 
 @keyframes ticker {
@@ -389,15 +392,35 @@ header {
 
     .skills-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        padding: 10px;
     }
 
     .section-title {
         font-size: 2rem;
+    }
+
+    #skills {
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .skill-card {
+        padding: 20px;
     }
 }
 
 @media (max-width: 480px) {
     .skills-grid {
         grid-template-columns: 1fr;
+        max-width: 280px;
+    }
+
+    .skill-card i {
+        font-size: 2.5rem;
+    }
+
+    .ticker-text {
+        font-size: 1rem;
     }
 }
